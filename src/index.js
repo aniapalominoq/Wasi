@@ -21,7 +21,7 @@ app.set('views', join(__dirname, 'views'))
 
 
 app.use((req, res, next)=> {
-    res.send('Página solicitada no encontrada')
+    res.send('hello')
     next()
 })
 

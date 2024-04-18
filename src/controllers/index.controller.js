@@ -21,13 +21,20 @@ export const getIndex = async (req, res) => {
     }
     
     console.log(alojamientos)
-    if(req.session.loggedin){
+    if(req.cookies.loggedin){
+        const usuarioSesion = {
+            nombres: req.cookies.nombres,
+            apellidos: req.cookies.apellidos,
+            foto_url: req.cookies.foto_url 
+        }
+
         res.render('index', {
          login: true,
-         name: req.session.name,
-         id: req.session.id,
-         rol: req.session.rol,
-         alojamientos   
+         /* name: req.session.name, */
+         id: req.cookies.idUser,
+         /* rol: req.session.rol, */
+         alojamientos,
+         usuarioSesion
         })
     } else {
         res.render('index', {

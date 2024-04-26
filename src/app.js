@@ -10,6 +10,11 @@ import cors from "cors"
 import indexRoutes from './routes/index.routes.js'
 import loginRoutes from './routes/login.routes.js'
 import registerRoutes from './routes/register.routes.js'
+import quienesSomosRoutes from './routes/quienesSomos.routes.js'
+import planesYPreciosRoutes from './routes/planesYPrecios.routes.js'
+import alojamientoElegidoRoutes from './routes/alojamientoElegido.routes.js'
+import miPerfilRoutes from './routes/miPerfil.routes.js'
+import resultadoBusqueda from './routes/resultadoBusqueda.routes.js'
 
 
 const app = express()
@@ -17,8 +22,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 //console.log(__dirname)
 app.use(morgan('dev'))
 app.use(express.static(join(__dirname, 'public')))
-app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.json({limit: '50mb'}))
+app.use(express.urlencoded({extended: true, limit: '50mb', parameterLimit:50000}))
 
 app.use(
 	cors({
@@ -28,24 +33,7 @@ app.use(
 	})
 )
 
-app.use(cookieParser())
-/* app.set('trust proxy', 1) */
-app.use(session({
-        secret: 'perro-gato',
-        resave: false,
-        saveUninitialized: false,
-        name: "session"
-        /* cookie: { maxAge: (5 * 60 * 60 * 1000)} // 5 horas */
-        /* cookie: {
-            secure: true,//use this when the code is in production for https cookie request
-            httpOnly:true,
-            sameSite: 'lax' //dealing with cross-site requests and the usage of third-party cookies
-        } */
-       
-    })
-)
-
-
+app.use(cookieParser('gato-perro'))
 
 app.set('view engine', 'ejs')
 app.set('views', join(__dirname, 'views'))
@@ -53,12 +41,15 @@ app.set('views', join(__dirname, 'views'))
 app.use(loginRoutes)
 app.use(registerRoutes)
 app.use(indexRoutes)
+app.use(quienesSomosRoutes)
+app.use(planesYPreciosRoutes)
+app.use(alojamientoElegidoRoutes)
+app.use(miPerfilRoutes)
+app.use(resultadoBusqueda)
 
 
 app.get('/logout', (req, res) => {
-    /* req.session.destroy(() => {
-        res.redirect('/')
-    }) */
+
     res.clearCookie("loggedin");
     res.clearCookie("idUser");
     res.clearCookie("nombres");

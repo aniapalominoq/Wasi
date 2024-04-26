@@ -10,7 +10,7 @@ export const getLogin = async (req, res) => {
     res.render('index', {data: data[0]}) */
     /* const users = await client.sql`SELECT * FROM mascotas;`; */
     /* res.json({users: users.rows}) */
-    if(req.session.loggedin){
+    if(req.signedCookies['loggedin']){
         res.redirect('/')
     } else {
         res.render('inicioDeSesion', {
@@ -33,14 +33,19 @@ export const postLogin = async (req, res) => {
             res.render('inicioDeSesion', {msg: 'Usuario y/o contraseña incorrectas', login: false})       
         }else{
             const result1 = await client.sql`SELECT nombres, apellidos, foto_url FROM perfiles WHERE usuarioid = ${rows[0].usuarioid};`
-            
-            res.cookie('loggedin', true, { maxAge: 900000, httpOnly: true })
+            client.release();
+            res.cookie('loggedin', true, { maxAge: 900000, httpOnly: true, secure: true, signed: true })
+            /* req.signedCookies.loggedin = true */
             /* req.session.name = rows[0].nombreusuario */
-            res.cookie('idUser', rows[0].usuarioid, { maxAge: 900000, httpOnly: true })
+            res.cookie('idUser', rows[0].usuarioid, { maxAge: 900000, httpOnly: true, secure: true, signed: true })
+            /* req.signedCookies.idUser = rows[0].usuarioid */
             /* req.session.rol = rows[0].rol */
-            res.cookie('nombres', result1.rows[0].nombres, { maxAge: 900000, httpOnly: true })
-            res.cookie('apellidos', result1.rows[0].apellidos, { maxAge: 900000, httpOnly: true })
-            res.cookie('foto_url', result1.rows[0].foto_url, { maxAge: 900000, httpOnly: true })
+            res.cookie('nombres', result1.rows[0].nombres, { maxAge: 900000, httpOnly: true, secure: true, signed: true })
+            /* req.signedCookies.nombres = result1.rows[0].nombres */
+            res.cookie('apellidos', result1.rows[0].apellidos, { maxAge: 900000, httpOnly: true, secure: true, signed: true })
+            /* req.signedCookies.apellidos = result1.rows[0].apellidos */
+            res.cookie('foto_url', result1.rows[0].foto_url, { maxAge: 900000, httpOnly: true, secure: true, signed: true})
+            /* req.signedCookies.foto_url = result1.rows[0].foto_url */
             /* req.session. */const usuarioSesion = {
                 nombres: result1.rows[0].nombres,
                 apellidos: result1.rows[0].apellidos,

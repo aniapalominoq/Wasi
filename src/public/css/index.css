@@ -1,0 +1,304 @@
+html{
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--primario);
+}
+h3{
+    text-align: center;
+    margin: 24px 24px 16px 24px;
+}
+/* header */
+header{
+    position: absolute;
+}
+
+/* -------------------------------------------- */
+/* CONTAINER  */
+/* -------------------------------------------- */
+.container{
+    width: 100%;
+    height: 100vh;
+    background-image: url(../images/Encabezado.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+}
+.container .titulo-principal{
+    width: 1128px;
+    padding: 48px 24px 80px 0;
+    margin: 5% auto;
+    text-align: right;
+}
+
+/* -------------------------------------------- */
+/* SEARCH Y METRICAS */
+/* -------------------------------------------- */
+
+.searchMetricas{
+    width: 100%;
+    position: relative;
+    top: -50px;
+    padding: 0 24px;
+}
+.container-metricas{
+    margin: auto;
+    max-width: 1128px;
+    padding: 45px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-metricas .texto{
+    text-align: center;
+}
+.container-metricas .numeros{
+    width: 70%;
+    display: flex;
+}
+.container-metricas p{
+    text-align: center;
+    width: 265px;
+}
+
+/* -------------------------------------------- */
+/* COMO FUNCIONA  */
+/* -------------------------------------------- */
+
+.comoFunciona{
+    width: 100%;
+    padding: 24px 0;
+    gap: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.comoFunciona .cards{
+    max-width: 1128px;
+    min-width: 370px;
+    padding: 24px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+.comoFunciona .cards .card{
+    width: 252px;
+    height: 360px;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+.comoFunciona .cards .card img{
+    width: 137px;
+}
+.comoFunciona .cards .card .icono{
+    width: 22px;
+}
+
+/* -------------------------------------------- */
+/* RECOMENDADOOS PARA TI */
+/* -------------------------------------------- */
+
+.recomendadosParaTi{
+    margin: 0 auto;
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.recomendadosParaTi .cards{
+    margin: auto;
+    max-width: 1128px;
+    padding: 16px 0 32px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+.recomendadosParaTi .paraTiCard{
+    width: 264px;
+    padding: 0 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.recomendadosParaTi .imgCard img{
+    width: 264px;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: none;
+}
+.recomendadosParaTi .paraTiCard .cuerpoCard{
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.recomendadosParaTi .paraTiCard .esp{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.recomendadosParaTi .paraTiCard .esp .nombreCard{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.recomendadosParaTi .paraTiCard .esp .nombreCard .clasif{
+    display: flex;
+    align-items: center;
+}
+.recomendadosParaTi .paraTiCard .esp .iconosCard{
+    border-top: 1px solid var(--primario) ;
+    border-bottom: 1px solid var(--primario) ;
+    padding: 8px 0 16px 0;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.recomendadosParaTi .paraTiCard .esp .iconosCard .iconText{
+    max-width: 51px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.recomendadosParaTi .paraTiCard .esp .iconosCard img{
+    width: 25px;
+    height: 25px;
+    margin: 8px;
+}
+.recomendadosParaTi .paraTiCard .precioCard{
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+}
+.recomendadosParaTi .paraTiCard .precioCard button{
+    width: 112px;
+}
+
+/* -------------------------------------------- */
+/* QUIENES NOS ELIGEN  */
+/* -------------------------------------------- */
+.testimonial{
+    padding: 24px 0 32px 0;
+    text-align: center;
+}
+.testimonial .cardTestimonial{
+    margin: 0 auto;
+    max-width: 1128px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 24px 0;
+}
+.testimonial .informacion{
+    width: 359px;
+    height: 381px;
+    padding: 47px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+.testimonial .informacion img{
+    width: 123px;
+}
+
+/* -------------------------------------------- */
+/* PREGUNTAS FRECUENTES */
+/* -------------------------------------------- */
+
+.pgtsFrecuentes{
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.pgtsFrecuentes .preguntas{
+    max-width: 1128px;
+    padding: 32px 0 48px 0;
+    margin: 8px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.pgtsFrecuentes summary{
+    border: 2px solid var(--primario);
+    padding: 16px;
+    cursor: pointer;
+}
+.pgtsFrecuentes .answer{
+    margin: 8px auto;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+/* -------------------------------------------- */
+/* MARCAS  */
+/* -------------------------------------------- */
+
+.brands{
+    padding: 48px 0 64px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.brands .contenedorBrands{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.brand{
+    width: 145px;
+}
+
+/* MEDIA QUERIES */
+/* Tablet */
+@media only screen and (max-width:768px) {
+    /* CONTAINER */
+
+    /* SEARCH Y METRICAS  */
+
+    .container-metricas{
+        flex-direction: column;
+        gap: 16px;
+    }
+    .container-metricas .numeros{
+        width: 100%;
+    }
+
+    /* RECOMENDADO PARA TI */
+    .recomendadosParaTi .cards{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 507px){
+    .container-metricas .numeros{
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+}
+
+/* Celular */
+@media only screen and (max-width: 375px){
+    /* CONTAINER */
+    .titulo-principal{
+        font-size: 32px;
+    }
+}
